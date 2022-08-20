@@ -1,4 +1,4 @@
-const userService = require("./user.service")
+const userService = require("./user.service");
 
 const findByEmailUserService = require("./user.service");
 
@@ -36,7 +36,15 @@ const createUserController = async (req, res) => {
 };
 
 const findAllUserController = async (req, res) => {
-  res.send({ message: "Find All OK" });
+  const users = await userService.findAllUserService();
+
+  if (users.length === 0) {
+    return res.status(400).send({
+      message: "não existem users cadastrados",
+    });
+  }
+
+  res.send(users);
 };
 
 module.exports = { createUserController, findAllUserController };

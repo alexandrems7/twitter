@@ -19,7 +19,7 @@ app.use(express.json());
 
 app.use("/users", userRoute)
 app.use("/auth", authRoute)
-app.use("tweets", tweetsRoute)
+app.use("/tweets", tweetsRoute)
 
 
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`))

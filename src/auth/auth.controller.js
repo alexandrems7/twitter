@@ -17,9 +17,12 @@ const loginController = async (req, res) => {
   }
 
 
+
   console.log(isPasswordValid);
 
-  res.send(user);
+  const token = authService.generateToken(user.id)
+
+  res.send({token});
 };
 
 module.exports = { loginController };
